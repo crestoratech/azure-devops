@@ -8,6 +8,11 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
+
+variables:
+  client_id="1b787950-28d6-4071-b7dd-65669567d1e7"
+  client_secret="deU8Q~IYRWWsfuxAqFy5atFmSyWHkZ8Yo1VJdbTl"
+
 - task: DownloadSecureFile@1
   name: publickey
   inputs:
@@ -29,5 +34,5 @@ steps:
     provider: 'azurerm'
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
-    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'''
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
     environmentServiceNameAzureRM: 'Azure_backend'
