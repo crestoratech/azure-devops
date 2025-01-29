@@ -30,5 +30,5 @@ steps:
     provider: 'azurerm'
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
-    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFile)'
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var "ssh_public_key=$(Agent.TempDirectory)/azure_ssh.pub"'
     environmentServiceNameAzureRM: 'Azure_backend'
