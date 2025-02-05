@@ -31,4 +31,4 @@ steps:
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
     commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var "ssh_public_key=$(Agent.TempDirectory)/azure_ssh.pub"'
-    environmentServiceNameAzureRM: 'Pay-As-You-Go(501f691f-2311-42e3-a356-0c5a1965ebf3)'
+    environmentServiceNameAzureRM: 'AKS_Connection'
