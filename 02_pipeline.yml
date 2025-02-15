@@ -4,10 +4,11 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-stages:
-  - stage: Build
-      - bash: ls -R $(System.DefaultWorkingDirectory)
-      - bash: ls -R $(Build.ArtifactStagingDirectory)
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+- bash: ls -R $(System.DefaultWorkingDirectory)
+- bash: ls -R $(Build.ArtifactStagingDirectory)
 
 - task: CopyFiles@2
   inputs:
