@@ -1,0 +1,26 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: Agent
+     steps:
+     - bash: echo $(Agent.MachineName)
+     - bash: echo $(Agent.Name)
+     
+  - stage: Build
+    steps:
+    - bash: echo $(Build.BuildId)
+    - bash: echo $(Build.BuildNumber)
+    - bash: echo $(Build.Repository.ID)
+    - bash: echo $(Build.Repository.Name)
+    - bash: java --vesrion
+    - bash: python --version
+    - bash: mvn -version
